@@ -60,7 +60,7 @@ $.ajax({
 
 (function (){
     var text;
-    if(document.referrer !== ''){
+    if(document.referrer !== '' && document.referrer !== 'buringstraw.win'){
         var referrer = document.createElement('a');
         referrer.href = document.referrer;
         text = 'Hello! 来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友';
