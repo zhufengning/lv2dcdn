@@ -36,7 +36,7 @@ $(document).on('copy', function (){
 
 $.ajax({
     cache: true,
-    url: "https://cdn.jsdelivr.net/gh/zhufengning/lv2dcdn@6/waifu-tips.json",
+    url: "https://cdn.jsdelivr.net/gh/zhufengning/lv2dcdn@8/waifu-tips.json",
     dataType: "json",
     success: function (result){
         $.each(result.mouseover, function (index, tips){
