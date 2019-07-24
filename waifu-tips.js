@@ -34,28 +34,22 @@ $(document).on('copy', function (){
     showMessage('你都复制了些什么呀，转载要记得加上出处哦', 5000);
 });
 
-$.ajax({
-    cache: true,
-    url: "https://cdn.jsdelivr.net/gh/zhufengning/lv2dcdn@10/waifu-tips.json",
-    dataType: "json",
-    success: function (result){
-        $.each(result.mouseover, function (index, tips){
-            $(document).on("mouseover", tips.selector, function (){
-                var text = tips.text;
-                if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
-                text = text.render({text: $(this).text()});
-                showMessage(text, 3000);
-            });
-        });
-        $.each(result.click, function (index, tips){
-            $(document).on("click", tips.selector, function (){
-                var text = tips.text;
-                if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
-                text = text.render({text: $(this).text()});
-                showMessage(text, 3000);
-            });
-        });
-    }
+result = {
+    "mouseover": [
+        {
+            "selector": "a[href^='http']:not(:empty)",
+            "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"]
+        }
+	]
+}
+
+$.each(result.mouseover, function (index, tips){
+	$(document).on("mouseover", tips.selector, function (){
+		var text = tips.text;
+		if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
+		text = text.render({text: $(this).text()});
+		showMessage(text, 3000);
+	});
 });
 
 (function (){
