@@ -39,12 +39,30 @@ result = {
         {
             "selector": ".card-title>a,.post-footer-thumbnail>a,.timeline-item>a,.archives-tags-item>a,.archives-cate-item>a",
             "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"]
+        },	
+        {	
+            "selector": "#textarea",	
+            "text": ["大。大佬要发言了吗"]	
         }
-	]
+	],	
+    "click": [	
+	{	
+		"selector": ".waifu #live2d",	
+		"text": ["莫挨老子！"]	
+	}
 }
 
 $.each(result.mouseover, function (index, tips){
 	$(document).on("mouseover", tips.selector, function (){
+		var text = tips.text;
+		if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
+		text = text.render({text: $(this).text()});
+		showMessage(text, 3000);
+	});
+});
+
+$.each(result.click, function (index, tips){
+	$(document).on("click", tips.selector, function (){
 		var text = tips.text;
 		if(Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1)-1];
 		text = text.render({text: $(this).text()});
