@@ -46,10 +46,11 @@ result = {
         }
 	],	
     "click": [	
-	{	
-		"selector": ".waifu #live2d",	
-		"text": ["莫挨老子！"]	
-	}
+		{	
+			"selector": ".waifu #live2d",	
+			"text": ["莫挨老子！"]	
+		}
+	]
 }
 
 $.each(result.mouseover, function (index, tips){
