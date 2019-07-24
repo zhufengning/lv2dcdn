@@ -37,7 +37,7 @@ $(document).on('copy', function (){
 result = {
     "mouseover": [
         {
-            "selector": ".card-title>a[href^='http']",
+            "selector": ".card-title>a,.post-footer-thumbnail>a,.timeline-item>a,.archives-tags-item>a",
             "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"]
         }
 	]
